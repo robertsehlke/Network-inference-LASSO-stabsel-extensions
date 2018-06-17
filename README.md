@@ -6,7 +6,7 @@ This is an R implementation of LASSO with stability selection, originally introd
 I make use of the R packages *glmnet* (LASSO), *corpcor*, and *foreach*/*doParallel* for parallalization. 
 
 ### Example application
-A common task in computational biology is inferring which genes are acting together in response to certain stimuli (construct a co-expression network). For this, we have measured gene expression in different conditions. The naive approach would be to calculate pairwise correlations between all genes, and draw network edges between genes that are highly correlated or anti-correlated. This will typically result in a very dense network with many redundant edges. Also, applying a fixed correlation cutoff will discard local structure in noisier regions of the network. 
+A common task in computational biology is inferring which genes are acting together in response to certain stimuli (construct a co-expression network). The input data are measurements of gene expression in different conditions. The naive approach would be to calculate pairwise correlations between all genes, and draw network edges between genes that are highly correlated or anti-correlated. However, this will typically result in a very dense network with many redundant edges, and other problems (e.g. potentially losing local structure).
 
 Many more sophisticated methods exist (partial correlation, multiple regression methods, random forests, ...), one of them being regularized multiple regression using LASSO. This can be combined with the stability selection approach by Meinshausen & Bühlmann to:
 * obtain significance scores
