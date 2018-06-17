@@ -21,7 +21,7 @@ The functions implemented here support arbitrary sub-divisions of observations (
 
 ### Extension: distance partial correlations
 One down-side of LASSO is that it is an inherently linear method, whereas gene co-expression patterns may be non-linear. 
-Introduced by Ghanbari et al. (2016), distance partial correlations uses the distance covariance metric by Szekely et al. (2013), distance partial correlations solve this problem by first mapping observations into a high-dimensional space. Then, the fast approximation of the precision matrix (Schafer et al., 2005) is used to calculate partial correlations on the extended representation.
+Introduced by Ghanbari et al. (2016), the distance partial correlation method uses the distance covariance metric by Szekely et al. (2013) to solve this problem: observations are first mapped into a high-dimensional space where they behave linearly. Then, the fast approximation of the precision matrix (Schafer et al., 2005) is used to calculate partial correlations on the extended representation.
 This method is implemented here in the function *rs.distancePartialCorrelation*.
 
 In addition, I have implemented an experimental method (*rs.stabsel.dcor*), using the stability selection procedure that employs the full partial correlations (as in Schafer and Strimmer) instead of LASSO, with or without mapping into the extended space (N2). Note that the number of observations in the extended space is the square of the original number, so this can get expensive.
